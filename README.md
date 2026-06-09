@@ -1,12 +1,15 @@
 # pycaps
 
-[![Status](https://img.shields.io/badge/status-alpha-orange.svg)](https://github.com/francozanardi/pycaps)
+[![Status](https://img.shields.io/badge/status-alpha-orange.svg)](https://github.com/AleefBilal/pycaps)
+[![PyPI](https://img.shields.io/pypi/v/pycaps-ai.svg)](https://pypi.org/project/pycaps-ai/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org/downloads/)
 [![Hugging Face Spaces](https://img.shields.io/badge/Try%20it%20online-Hugging%20Face-blue?logo=huggingface)](https://huggingface.co/spaces/francozanardi/pycaps-new)
 
 
 **pycaps** is a Python tool for adding CSS styled subtitles to videos. It's designed as both a programmable library and a command-line interface (CLI), making it perfect for automating the creation of dynamic content for platforms like TikTok, YouTube Shorts, and Instagram Reels.
+
+> **Note:** This is a community fork published on PyPI as [`pycaps-ai`](https://pypi.org/project/pycaps-ai/). The original project is [francozanardi/pycaps](https://github.com/francozanardi/pycaps).
 
 ![demo-1](https://github.com/user-attachments/assets/fd2d3325-c986-4b6a-81ba-09c428577e61)
 ![demo-2](https://github.com/user-attachments/assets/9a789244-0387-4ac8-ab51-b3601447953e)
@@ -15,7 +18,7 @@
 
 ## Try It Online (no installation needed!)
 
-You have two options to test `pycaps` directly in your browser. Choose the one that best fits your needs.
+You have two options to test `pycaps` directly in your browser (hosted by the [original project](https://github.com/francozanardi/pycaps)). Choose the one that best fits your needs.
 
 ### 1. Interactive Web Demo (on Hugging Face)
 
@@ -58,27 +61,30 @@ Before installing, please ensure your environment meets the following requiremen
 
 ## Installation
 
-pycaps is currently in a very alpha stage and is not yet available on PyPI. You can install it directly from the GitHub repository.
-
 1.  **Install FFmpeg**: Ensure you have completed the prerequisite step above.
 
-2.  **Install pycaps from GitHub:**
+2.  **Install from PyPI:**
 
     **Full installation (recommended):**
     ```bash
-    pip install "git+https://github.com/francozanardi/pycaps.git#egg=pycaps[all]"
+    pip install "pycaps-ai[all]"
     ```
 
     **Custom installation with specific features:**
     ```bash
-    # Basic dependencies to work with default configuration (includes whisper and playwright)
-    pip install "git+https://github.com/francozanardi/pycaps.git#egg=pycaps[base]"
+    # Whisper + Playwright + transcription editor (default setup)
+    pip install "pycaps-ai[base]"
 
-    # Faster alternative, doesn't include subtitles editor, and renders without a browser (it uses google cloud speech to text and html2pic to render the subtitles)
-    pip install "git+https://github.com/francozanardi/pycaps.git#egg=pycaps[browser]"
+    # Lighter rendering: Google Speech + html2pic (no browser)
+    pip install "pycaps-ai[fast]"
     ```
 
-3.  **Install Browser Dependencies for Rendering (Optional):**
+    **Install from GitHub (latest dev):**
+    ```bash
+    pip install "git+https://github.com/AleefBilal/pycaps.git#egg=pycaps-ai[all]"
+    ```
+
+3.  **Install Browser Dependencies for Rendering:**
     `pycaps` currently has two different options to render the subtitle images:
     - `CssSubtitleRenderer`, which is the original and default one. It uses Playwright to render CSS styles. So, you need to install its browser dependency to use it:
       ```bash
@@ -162,8 +168,8 @@ pipeline.run()
 
 ## Contributing
 
-This project is in active development. Contributions, bug reports, and feature requests are welcome! Please open an issue or pull request on our [GitHub repository](https://github.com/francozanardi/pycaps).
+This project is in active development. Contributions, bug reports, and feature requests are welcome! Please open an issue or pull request on our [GitHub repository](https://github.com/AleefBilal/pycaps).
 
 ## License
 
-pycaps is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+pycaps is licensed under the [MIT License](https://opensource.org/licenses/MIT). Originally created by [Franco Zanardi](https://github.com/francozanardi/pycaps).

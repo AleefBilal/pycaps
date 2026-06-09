@@ -3,10 +3,13 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pycaps"
+name = "pycaps-ai"
 version = "0.2.1"
 authors = [
-  { name="Franco Zanardi", email="francozanardi97@gmail.com" },
+  { name = "Aleef Bilal", email = "aleefbilal@gmail.com" },
+]
+maintainers = [
+  { name = "Aleef Bilal", email = "aleefbilal@gmail.com" },
 ]
 description = "A Python tool to edit videos and automatically add CSS-styled subtitles to videos."
 readme = "README.md"
@@ -62,9 +65,9 @@ all = [
 pycaps = "pycaps.cli:app"
 
 [project.urls]
-"Homepage" = "https://github.com/francozanardi/pycaps"
-"Repository" = "https://github.com/francozanardi/pycaps"
-"Bug Tracker" = "https://github.com/francozanardi/pycaps/issues"
+"Homepage" = "https://github.com/AleefBilal/pycaps"
+"Repository" = "https://github.com/AleefBilal/pycaps"
+"Bug Tracker" = "https://github.com/AleefBilal/pycaps/issues"
 
 [tool.setuptools]
 include-package-data = true
