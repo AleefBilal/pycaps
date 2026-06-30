@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pycaps-ai"
-version = "0.2.1"
+version = "0.2.2"
 authors = [
   { name = "Aleef Bilal", email = "aleefbilal@gmail.com" },
 ]
@@ -60,6 +60,20 @@ all = [
     "pywebview",
     "html2pic"
 ]
+base-cpu = [
+    "torch",
+    "openai-whisper",
+    "playwright",
+    "pywebview",
+]
+all-cpu = [
+    "torch",
+    "openai-whisper",
+    "google-cloud-speech",
+    "playwright",
+    "pywebview",
+    "html2pic",
+]
 
 [project.scripts]
 pycaps = "pycaps.cli:app"
@@ -74,3 +88,20 @@ include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.uv]
+conflicts = [
+    [{ extra = "base-cpu" }, { extra = "base" }],
+    [{ extra = "all-cpu" }, { extra = "all" }],
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu", extra = "base-cpu" },
+    { index = "pytorch-cpu", extra = "all-cpu" },
+]

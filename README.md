@@ -65,10 +65,24 @@ Before installing, please ensure your environment meets the following requiremen
 
 2.  **Install from PyPI:**
 
-    **Full installation (recommended):**
+    **Full installation (recommended, GPU/default PyTorch on Linux):**
     ```bash
     pip install "pycaps-ai[all]"
     ```
+
+    **CPU-only installation (smaller download, no CUDA runtime packages):**
+    ```bash
+    # pip — --extra-index-url is required so torch resolves from the CPU wheel index
+    pip install "pycaps-ai[base-cpu]" --extra-index-url https://download.pytorch.org/whl/cpu
+    # or
+    pip install "pycaps-ai[all-cpu]" --extra-index-url https://download.pytorch.org/whl/cpu
+
+    # uv — reads [tool.uv] config from pyproject.toml, no extra flags needed
+    uv pip install "pycaps-ai[base-cpu]"
+    uv pip install "pycaps-ai[all-cpu]"
+    ```
+
+    > CPU installs are much smaller (~10x) because they skip NVIDIA CUDA runtime wheels. Without `--extra-index-url`, pip still installs the default CUDA build of PyTorch from PyPI. Whisper automatically uses CPU when a CPU-only PyTorch is installed.
 
     **Custom installation with specific features:**
     ```bash
